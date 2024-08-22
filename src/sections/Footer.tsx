@@ -78,7 +78,7 @@ export const Footer = () => {
           </nav>
         </div>
 
-        <div className="flex justify-center gap-6 mb-8">
+        <div className="flex justify-center items-center gap-6 mb-8">
           <a
             href="https://www.linkedin.com/company/symbiosis-solution/"
             target="_blank"
@@ -86,10 +86,18 @@ export const Footer = () => {
           >
             <SocialLinkedin />
           </a>
-          <a href="#" className="header-links social-icon hover:text-[#1877F2]">
+          <a
+            href="https://www.facebook.com/symbiosis.sol"
+            target="_blank"
+            className="header-links social-icon hover:text-[#1877F2]"
+          >
             <SocialFacebook />
           </a>
-          <a href="#" className="header-links social-icon hover:text-[#ed4d6f]">
+          <a
+            href="https://www.instagram.com/symbiosis.sol"
+            target="_blank"
+            className="header-links social-icon hover:text-[#ed4d6f]"
+          >
             <SocialInsta />
           </a>
         </div>
