@@ -1,7 +1,7 @@
 "use client";
 
 import ServicesCard from "@/components/ServicesCard";
-import teacherTraining from "@/assets/ai-innovation.jpg"; 
+import teacherTraining from "@/assets/teacher-training.jpeg"; 
 import educationalTools from "@/assets/aidin.jpg"; 
 
 const services = [
@@ -11,9 +11,9 @@ const services = [
       "We equip educators in Nepal with essential AI literacy through high-quality training, driving responsible Generative AI adoption to enhance learning and boost productivity.",
     link: "#learn-more",
     backgroundImage: teacherTraining.src,
-    buttonText:"Learn More",
-    buttonColor:"#FFFFFF", 
-    buttonHoverColor:"blue-700",
+    // buttonText:"Learn More",
+    // buttonColor:"#FFFFFF", 
+    // buttonHoverColor:"blue-700",
   },
   {
     title: "AI-Powered Educational Tools",
@@ -21,9 +21,9 @@ const services = [
       "We create custom AI tools that are tailored to improve learning outcomes, providing educators and students with more effective and personalized educational experiences.",
     link: "#explore",
     backgroundImage: educationalTools.src,
-    buttonText:"Explore",
-    buttonColor:"white", 
-    buttonHoverColor:"blue-700",
+    // buttonText:"Explore",
+    // buttonColor:"white", 
+    // buttonHoverColor:"blue-700",
 
   },
 ];
@@ -42,9 +42,9 @@ export const Services = () => {
               description={service.description}
               link={service.link}
               backgroundImage={service.backgroundImage}
-              buttonText={service.buttonText}
-              buttonColor={service.buttonColor}
-              buttonHoverColor={service.buttonHoverColor}
+              // buttonText={service.buttonText}
+              // buttonColor={service.buttonColor}
+              // buttonHoverColor={service.buttonHoverColor}
             />
           </div>
         ))}

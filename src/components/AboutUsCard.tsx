@@ -31,12 +31,12 @@ const AboutUsCard: React.FC<AboutUsCardProps> = ({ imageSrc, title, description,
       <div className="p-4 rounded-lg">
         <h2 className="text-2xl font-semibold mb-4 text-white">{title}</h2>
         <p className="mb-4 text-white">{description}</p>
-        <a
+        {/* <a
           href={link}
           className="text-blue-400 hover:underline flex items-center gap-2"
         >
           Learn More
-        </a>
+        </a> */}
       </div>
     </motion.div>
   );

@@ -24,9 +24,9 @@ export const Hero = () => {
               We Empower Educators and Learners with Personalized, Responsible
               AI Technologies.
             </p>
-            <button className="bg-[#009C9C] hover:bg-[#008888] transition-colors duration-300 text-white px-4 py-2 md:px-4 md:py-3 rounded-lg font-medium tracking-tight w-1/2 md:w-auto text-sm md:text-base">
+            {/* <button className="bg-[#009C9C] hover:bg-[#008888] transition-colors duration-300 text-white px-4 py-2 md:px-4 md:py-3 rounded-lg font-medium tracking-tight w-1/2 md:w-auto text-sm md:text-base">
               Learn More
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
