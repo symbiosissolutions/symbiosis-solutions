@@ -1,56 +1,52 @@
 "use client";
 
-import product1 from "@/assets/ai.jpg";
-import product2 from "@/assets/aidin.jpg";
+import askbuddha from "@/assets/askbuddha.jpeg";
+import coshikshya from "@/assets/coshikshya.jpeg";
 import ProductsCard from "@/components/ProductsCard";
-import { useState } from "react";
-import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
+// import { useState } from "react";
+// import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const products = [
   {
-    title: "Product 1",
-    description: "This is the first product.",
-    link: "/product1",
-    backgroundImage: product1.src,
+    title: "Ask Buddha",
+    // description: "This is the first product.",
+    // link: "/product1",
+    backgroundImage: askbuddha.src,
   },
   {
-    title: "Product 2",
-    description: "This is the second product.",
-    link: "/product2",
-    backgroundImage: product2.src,
-  },
-  {
-    title: "Product 3",
-    description: "This is the third product.",
-    link: "/product3",
-    backgroundImage: product1.src,
+    title: "CoShikshya",
+    // description: "This is the second product.",
+    // link: "/product2",
+    backgroundImage: coshikshya.src,
   },
 ];
 
 export const Products = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const itemsPerPage = 2;
-  const totalItems = products.length;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+  // const itemsPerPage = 2;
+  // const totalItems = products.length;
+  // const totalPages = Math.ceil(totalItems / itemsPerPage);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === totalPages - 1 ? 0 : prevIndex + 1
-    );
-  };
+  // const handleNext = () => {
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === totalPages - 1 ? 0 : prevIndex + 1
+  //   );
+  // };
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? totalPages - 1 : prevIndex - 1
-    );
-  };
+  // const handlePrev = () => {
+  //   setCurrentIndex((prevIndex) =>
+  //     prevIndex === 0 ? totalPages - 1 : prevIndex - 1
+  //   );
+  // };
 
   return (
     <section id="products" className="container mx-auto px-4 pt-16">
       <h1 className="text-4xl font-bold tracking-tighter text-center mb-12 text-gray-700">
         Our Products
       </h1>
-      <div className="flex items-center justify-center w-full mb-8">
+
+      {/* Carousel code */}
+      {/* <div className="flex items-center justify-center w-full mb-8">
         <button
           className="p-3 bg-gray-800 bg-opacity-50 rounded-full hover:bg-opacity-75 transition duration-300 mr-4"
           onClick={handlePrev}
@@ -83,6 +79,12 @@ export const Products = () => {
         >
           Explore Our Products
         </button>
+      </div> */}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {products.map((product, index) => (
+          <ProductsCard key={index} {...product} />
+        ))}
       </div>
     </section>
   );
