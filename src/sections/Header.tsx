@@ -41,12 +41,11 @@ export const Header = () => {
           <a href="/#blog" className="header-links">
             Blog
           </a>
-          <button className="header-btn">
-            Contact Us
-          </button>
+          <a href="/#contact-us">
+            <button className="header-btn">Contact Us</button>
+          </a>
         </nav>
       </div>
-      
     </header>
   );
 };

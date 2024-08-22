@@ -8,15 +8,15 @@ export const Contact: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8 text-gray-800">Contact Us</h2>
           <div className="mb-8">
             <div className="flex items-center mb-4">
-              <FaMapMarkerAlt className="text-indigo-600 mr-3" />
+              <FaMapMarkerAlt className="contact-icon" />
               <p className="text-gray-700">DRS Bhawan, Paknajol, Kathmandu</p>
             </div>
             <div className="flex items-center mb-4">
-              <FaPhoneAlt className="text-indigo-600 mr-3" />
+              <FaPhoneAlt className="contact-icon" />
               <p className="text-gray-700">+977-9707500600</p>
             </div>
             <div className="flex items-center">
-              <FaEnvelope className="text-indigo-600 mr-3" />
+              <FaEnvelope className="contact-icon" />
               <p className="text-gray-700">info@symbiosis.solutions</p>
             </div>
           </div>
@@ -24,62 +24,62 @@ export const Contact: React.FC = () => {
             <div className="form-group">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
+                className="contact-label"
               >
                 Name:
               </label>
               <input
                 type="text"
                 id="name"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="contact-form-inputs"
                 placeholder="Enter your name"
               />
             </div>
             <div className="form-group">
               <label
                 htmlFor="organization"
-                className="block text-sm font-medium text-gray-700"
+                className="contact-label"
               >
                 Organization:
               </label>
               <input
                 type="text"
                 id="organization"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="contact-form-inputs"
                 placeholder="Enter your organization"
               />
             </div>
             <div className="form-group">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="contact-label"
               >
                 Email:
               </label>
               <input
                 type="email"
                 id="email"
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="contact-form-inputs"
                 placeholder="Enter your email"
               />
             </div>
             <div className="form-group">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-gray-700"
+                className="contact-label"
               >
                 Message:
               </label>
               <textarea
                 id="message"
                 rows={4}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+                className="contact-form-inputs"
                 placeholder="Enter your message"
               ></textarea>
             </div>
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#009C9C] hover:bg-[#008888]"
             >
               Submit
             </button>

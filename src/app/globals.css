@@ -14,16 +14,23 @@ html {
   fill: currentColor;
 }
 
-
 @layer components {
   .header-btn {
-    @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight hover:bg-gray-800 transition-colors duration-300
+    @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight hover:bg-gray-800 transition-colors duration-300;
   }
-  .header-links{
-    @apply hover:text-black transition-colors 
+  .header-links {
+    @apply hover:text-black transition-colors;
   }
-  .about-us-card{
-    @apply bg-white p-6 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 transform hover:scale-105 hover:shadow-xl
-
+  .about-us-card {
+    @apply bg-white p-6 rounded-lg shadow-lg overflow-hidden transition-transform duration-300 transform hover:scale-105 hover:shadow-xl;
+  }
+  .contact-icon {
+    @apply text-[#009C9C] mr-3;
+  }
+  .contact-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+  .contact-form-inputs {
+    @apply mt-1 block w-full px-4 py-2 border rounded-md shadow-sm  placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#009C9C] focus:border-transparent;
   }
 }
