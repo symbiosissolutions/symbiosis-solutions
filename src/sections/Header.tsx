@@ -9,19 +9,7 @@ import MenuIcon from "@/assets/menu-icon.svg";
 import { useState, useEffect, useCallback } from "react";
 import { AnimatePresence, motion, useAnimation } from "framer-motion";
 import { MdClose } from "react-icons/md";
-
-interface NavLinkProps {
-  title: string;
-  href: string;
-}
-
-const navLinks: NavLinkProps[] = [
-  { title: "About Us", href: "/#about-us" },
-  { title: "Services", href: "/#services" },
-  { title: "Products", href: "/#products" },
-  { title: "Blog", href: "/#blog" },
-  { title: "Contact Us", href: "/#contact-us" },
-];
+import { NavLink, NavLinkProps, navLinks } from "@/components/NavLink";
 
 export const Header = () => {
   const [open, setOpen] = useState(false);
@@ -96,32 +84,10 @@ export const Header = () => {
     },
   };
 
-
   const iconVars = {
     closed: { rotate: 0 },
     open: { rotate: 180 },
   };
-
-  const NavLink = ({ title, href }: NavLinkProps) => (
-    <motion.a
-      href={href}
-      className={`${
-        title === "Contact Us" ? "header-btn" : "header-links"
-      } relative`}
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {title}
-      {title !== "Contact Us" && (
-        <motion.span
-          className="absolute bottom-0 left-0 w-full h-0.5 bg-[#009C9C]"
-          initial={{ scaleX: 0 }}
-          whileHover={{ scaleX: 1 }}
-          transition={{ duration: 0.3 }}
-        />
-      )}
-    </motion.a>
-  );
 
   const MobileNavLink = ({
     title,
@@ -185,7 +151,7 @@ export const Header = () => {
           >
             <div className="h-full flex flex-col">
               <div className="flex justify-end">
-              <motion.div 
+                <motion.div
                   className="cursor-pointer text-3xl"
                   onClick={toggleMenu}
                   whileHover={{ scale: 1.1 }}

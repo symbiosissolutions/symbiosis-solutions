@@ -9,6 +9,7 @@ import SocialFacebook from "@/assets/social-facebook.svg";
 import SocialInsta from "@/assets/social-insta.svg";
 import { BsSendCheck } from "react-icons/bs";
 import Link from "next/link";
+import { NavLink, navLinks } from "@/components/NavLink";
 
 const airplaneVariants = {
   hover: {
@@ -24,6 +25,7 @@ const airplaneVariants = {
 };
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const footerLinks = navLinks.filter((link) => link.title !== "Contact Us");
 
   return (
     <footer className="text-gray-700 text-sm py-10 pt-16">
@@ -62,19 +64,10 @@ export const Footer = () => {
               <Image src={logo} height={40} alt="Symbiosis Solutions Logo" />
             </Link>
           </div>
-          <nav className="flex flex-col md:flex-row md:justify-center gap-6">
-            <a href="/#about-us" className="header-links">
-              About Us
-            </a>
-            <a href="/#services" className="header-links">
-              Services
-            </a>
-            <a href="/#products" className="header-links">
-              Products
-            </a>
-            <a href="/#blog" className="header-links">
-              Blog
-            </a>
+          <nav className="flex flex-col items-center md:flex-row md:justify-center gap-6">
+            {footerLinks.map((link, index) => (
+              <NavLink key={index} {...link} />
+            ))}
           </nav>
         </div>
 

@@ -20,7 +20,7 @@ html {
 
 @layer components {
   .header-btn {
-    @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight hover:bg-gray-800 transition-colors duration-300;
+    @apply bg-black text-white px-4 py-2 rounded-lg font-medium inline-flex items-center justify-center tracking-tight;
   }
   .header-links {
     @apply hover:text-black transition-colors;
