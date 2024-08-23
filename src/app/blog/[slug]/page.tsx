@@ -24,7 +24,7 @@ const BlogDetails = ({ params }: BlogDetailsProps) => {
         />
       </div>
       <h1 className="text-4xl font-bold mt-6 mb-4">{post.title}</h1>
-      <span className="block text-sm font-semibold uppercase tracking-wide text-blue-500 mb-4">
+      <span className="block text-sm font-semibold uppercase tracking-wide text-[#009C9C] mb-4">
         {post.date}
       </span>
       <p className="text-gray-700 mb-8">{post.description}</p>

@@ -2,7 +2,7 @@
 
 import ServicesCard from "@/components/ServicesCard";
 import teacherTraining from "@/assets/teacher-training.jpeg"; 
-import educationalTools from "@/assets/aidin.jpg"; 
+import educationalTools from "@/assets/ai-powered-educational-tools.jpeg"; 
 
 const services = [
   {
@@ -30,11 +30,11 @@ const services = [
 
 export const Services = () => {
   return (
-    <section id="services" className="px-0 pt-16">
+    <section id="services" className="pt-16 mx-auto px-4">
       <h1 className="text-4xl font-bold tracking-tighter text-center mb-12 text-gray-700">
         Our Services
       </h1>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row gap-4">
         {services.map((service, index) => (
           <div className="w-full md:w-1/2 h-64 md:h-96" key={index}>
             <ServicesCard

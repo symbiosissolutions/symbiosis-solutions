@@ -1,40 +1,41 @@
 "use client";
 
+import humanCenteredImage from "@/assets/human-centered.png";
+import innovativeSolutionsImage from "@/assets/innovative-solutions.png";
+import responsibilityImage from "@/assets/commitment-to-responsibility.png";
+
 import AboutUsCard from "@/components/AboutUsCard";
-import humanCenteredImage from "@/assets/aidin.jpg";
-import aiSolutionsImage from "@/assets/ai.jpg";
-import responsibilityImage from "@/assets/ai-innovation.jpg";
 
 export const AboutUs: React.FC = () => {
   return (
     <section id="about-us" className="container mx-auto px-4 pt-16">
-      <h1 className="text-4xl font-bold tracking-tighter text-center mb-12 text-gray-700">
-        Why Choose Symbiosis Solutions?
+      <h1 className="text-4xl font-bold tracking-tighter text-center mb-8 text-[#009C9C]">
+        WHY CHOOSE SYMBIOSIS SOLUTIONS?
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="space-y-8">
         <AboutUsCard
           imageSrc={humanCenteredImage.src}
           title="Human-Centered Design"
           description="Our solutions prioritize the needs and experiences of educators and students."
           link="/"
+          alt="Human Centered Design Image"
         />
         <AboutUsCard
-          imageSrc={aiSolutionsImage.src}
+          imageSrc={innovativeSolutionsImage.src}
           title="Innovative AI Solutions"
-          description="We push the boundaries of technology to deliver cutting-edge educational tools."
           link="/"
+          description="We push the boundaries of technology to deliver cutting-edge educational tools."
+          alt="Innovative AI Solutions Image"
+          reverse
         />
-        <div className="md:col-span-2">
-          <div className="md:w-1/2 md:mx-auto">
-            <AboutUsCard
-              imageSrc={responsibilityImage.src}
-              title="Commitment to Responsibility"
-              description="We ensure that AI is integrated safely and ethically in education."
-              link="/"
-            />
-          </div>
-        </div>
+        <AboutUsCard
+          imageSrc={responsibilityImage.src}
+          title="Commitment to Responsibility"
+          description="We ensure that AI is integrated safely and ethically in education."
+          link="/"
+          alt="Commitment to Responsibility Image"
+        />
       </div>
     </section>
   );

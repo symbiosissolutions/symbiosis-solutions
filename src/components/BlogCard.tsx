@@ -33,14 +33,14 @@ const BlogCard: React.FC<BlogCardProps> = ({
         />
       </div>
       <div className="w-1/2 p-6 md:p-8 bg-white">
-        <span className="block text-xs font-semibold uppercase tracking-wide text-blue-500 mb-2">
+        <span className="block text-xs font-semibold uppercase tracking-wide text-[#008888] mb-2">
           {date}
         </span>
         <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
           {title}
         </h3>
         <p className="text-gray-600 line-clamp-3 mb-6">{description}</p>
-        <button className="inline-block py-2 px-4 rounded-lg text-white bg-blue-600 hover:bg-blue-800 transition-colors duration-300">
+        <button className="inline-block py-2 px-4 rounded-lg text-white bg-[#009C9C] hover:bg-[#008888] transition-colors duration-300">
           Read More
         </button>
       </div>

@@ -7,6 +7,8 @@ interface AboutUsCardProps {
   title: string;
   description: string;
   link: string;
+  alt: string;
+  reverse?: boolean;
 }
 
 const cardVariants = {
@@ -20,23 +22,34 @@ const cardVariants = {
   },
 };
 
-const AboutUsCard: React.FC<AboutUsCardProps> = ({ imageSrc, title, description, link }) => {
+const AboutUsCard: React.FC<AboutUsCardProps> = ({
+  imageSrc,
+  title,
+  description,
+  link,
+  alt,
+  reverse = false,
+}) => {
   return (
     <motion.div
-      className="relative bg-cover bg-center rounded-lg h-96 flex flex-col justify-end p-6"
-      style={{ backgroundImage: `url(${imageSrc})` }}
+      className={`flex flex-col md:flex-row ${
+        reverse ? "md:flex-row-reverse" : ""
+      } items-center mb-4 p-6 rounded-lg`}
       whileHover="hover"
       variants={cardVariants}
     >
-      <div className="p-4 rounded-lg">
-        <h2 className="text-2xl font-semibold mb-4 text-white">{title}</h2>
-        <p className="mb-4 text-white">{description}</p>
+      <div className="md:w-1/2 p-4">
+        <h2 className="text-2xl font-semibold mb-4 text-black">{title}</h2>
+        <p className="mb-4 text-black">{description}</p>
         {/* <a
           href={link}
           className="text-blue-400 hover:underline flex items-center gap-2"
         >
           Learn More
         </a> */}
+      </div>
+      <div className="md:w-1/2 p-4">
+        <img src={imageSrc} alt={alt} className="object-cover w-full h-full" />
       </div>
     </motion.div>
   );
