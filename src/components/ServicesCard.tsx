@@ -28,7 +28,7 @@ const ServicesCard: React.FC<ServicesCardProps> = ({
       whileHover={{ y: -10 }}
       transition={{ duration: 0.3 }}
     >
-      <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
 
       <div className="relative z-10">
         <h2 className="text-xl font-semibold mb-4 text-shadow">{title}</h2>
