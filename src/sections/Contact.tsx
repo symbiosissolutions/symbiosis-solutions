@@ -1,6 +1,53 @@
+"use client";
+
+import { useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
+interface IContactUsFormData {
+  name: string;
+  email: string;
+  organizationName: string;
+  message: string;
+}
+
 export const Contact: React.FC = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<IContactUsFormData>();
+
+  const onSubmit: SubmitHandler<IContactUsFormData> = async (data) => {
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          organizationName: data.organizationName,
+          message: data.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSubmitted(true);
+        reset();
+      } else {
+        const errorData = await response.json();
+        console.error("Error submitting message:", errorData.message);
+      }
+    } catch (error: any) {
+      console.error("Error submitting message:", error.message);
+    }
+  };
+
   return (
     <section id="contact-us" className="container mx-auto px-4 pt-16">
       <div className="flex flex-wrap md:space-x-8">
@@ -20,62 +67,109 @@ export const Contact: React.FC = () => {
               <p className="text-gray-700">info@symbiosis.solutions</p>
             </div>
           </div>
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit(onSubmit)}>
             <div className="form-group">
-              <label
-                htmlFor="name"
-                className="contact-label"
-              >
+              <label htmlFor="name" className="contact-label">
                 Name:
               </label>
               <input
                 type="text"
                 id="name"
-                className="contact-form-inputs"
-                placeholder="Enter your name"
+                placeholder="Enter your full name"
+                className={`contact-form-inputs ${
+                  errors.name ? "focus:ring-red-500" : "focus:ring-[#9CA3AF]"
+                }`}
+                {...register("name", {
+                  required: "Please enter your full name",
+                  pattern: {
+                    value: /^(?!\s*$)[a-zA-Z\s'-]+$/,
+                    message: "Please enter your valid name",
+                  },
+                })}
               />
+              {errors.name && (
+                <p className="text-red-500 text-base">
+                  {`${errors.name.message}`}
+                </p>
+              )}
             </div>
             <div className="form-group">
-              <label
-                htmlFor="organization"
-                className="contact-label"
-              >
+              <label htmlFor="organizationName" className="contact-label">
                 Organization:
               </label>
               <input
                 type="text"
-                id="organization"
-                className="contact-form-inputs"
+                id="organizationName"
                 placeholder="Enter your organization"
+                className={`contact-form-inputs ${
+                  errors.organizationName
+                    ? "focus:ring-red-500"
+                    : "focus:ring-[#9CA3AF]"
+                }`}
+                {...register("organizationName", {
+                  required: "Please enter your organization name",
+                  pattern: {
+                    value: /^(?!\s*$)[\w\s.,'&-]+$/,
+                    message: "Please enter a valid name.",
+                  },
+                })}
               />
+              {errors.organizationName && (
+                <p className="text-red-500 text-base">
+                  {`${errors.organizationName.message}`}
+                </p>
+              )}
             </div>
             <div className="form-group">
-              <label
-                htmlFor="email"
-                className="contact-label"
-              >
+              <label htmlFor="email" className="contact-label">
                 Email:
               </label>
               <input
                 type="email"
                 id="email"
-                className="contact-form-inputs"
                 placeholder="Enter your email"
+                className={`contact-form-inputs  ${
+                  errors.email ? "focus:ring-red-500" : "focus:ring-[#9CA3AF]"
+                }`}
+                {...register("email", {
+                  required: "Please enter your email",
+                  pattern: {
+                    value: /^(?!\s*$)[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                    message: "Please enter a valid email address",
+                  },
+                })}
               />
+              {errors.email && (
+                <p className="text-red-500 text-base">
+                  {`${errors.email.message}`}
+                </p>
+              )}
             </div>
             <div className="form-group">
-              <label
-                htmlFor="message"
-                className="contact-label"
-              >
+              <label htmlFor="message" className="contact-label">
                 Message:
               </label>
               <textarea
                 id="message"
                 rows={4}
-                className="contact-form-inputs"
                 placeholder="Enter your message"
+                className={`contact-form-inputs  ${
+                  errors.message ? "focus:ring-red-500" : "focus:ring-[#9CA3AF]"
+                }`}
+                {...register("message", {
+                  required: "Please enter your message",
+                  pattern: {
+                    value: /^(?!\s*$).{10,}$/,
+                    message:
+                      "Please enter a message that is at least 10 characters long",
+                  },
+                })}
               ></textarea>
+              {errors.message && (
+                <p className="text-red-500 text-base">
+                  {`${errors.message.message}`}
+                </p>
+              )}
             </div>
             <button
               type="submit"
@@ -84,6 +178,11 @@ export const Contact: React.FC = () => {
               Submit
             </button>
           </form>
+          {submitted && (
+            <p className="text-green-600 mt-4">
+              Thank you! Your message has been submitted successfully.
+            </p>
+          )}
         </div>
         <div className="w-full md:w-1/2">
           <h2 className="text-3xl font-bold mb-8 text-gray-800">
