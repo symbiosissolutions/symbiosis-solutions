@@ -10,8 +10,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "your-production-strapi-domain.com",
-        pathname: "/uploads/**",
+        hostname: "res.cloudinary.com",
       },
     ],
   },

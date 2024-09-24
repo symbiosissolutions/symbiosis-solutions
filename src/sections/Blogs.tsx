@@ -34,7 +34,7 @@ export const Blogs = async () => {
               summary={post.attributes.summary}
               title={post.attributes.title}
               date={post.attributes.publishedAt}
-              thumbnail={`${beBaseUrl}${post.attributes.thumbnail.data.attributes.url}`}
+              thumbnail={`${post.attributes.thumbnail.data.attributes.url}`}
               slug={post.attributes.slug}
             />
           ))

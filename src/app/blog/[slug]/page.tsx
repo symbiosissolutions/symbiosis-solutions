@@ -53,8 +53,7 @@ export default async function BlogDetails({ params }: BlogDetailsProps) {
     redirect("/#blog");
   }
 
-  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
-  const thumbnailUrl = `${backendUrl}${post.attributes.thumbnail.data.attributes.url}`;
+  const thumbnailUrl = `${post.attributes.thumbnail.data.attributes.url}`;
 
   const formattedDate = new Date(
     post.attributes.publishedAt
