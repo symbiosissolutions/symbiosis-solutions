@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
+import { Oval } from "react-loader-spinner";
 
 interface IContactUsFormData {
   name: string;
@@ -13,6 +14,7 @@ interface IContactUsFormData {
 
 export const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     register,
@@ -22,6 +24,7 @@ export const Contact: React.FC = () => {
   } = useForm<IContactUsFormData>();
 
   const onSubmit: SubmitHandler<IContactUsFormData> = async (data) => {
+    setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -45,6 +48,8 @@ export const Contact: React.FC = () => {
       }
     } catch (error: any) {
       console.error("Error submitting message:", error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -173,9 +178,19 @@ export const Contact: React.FC = () => {
             </div>
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-[#009C9C] hover:bg-[#008888]"
+              className="inline-flex items-center justify-center py-2 px-4 border border-transparent 
+              shadow-sm text-sm font-medium rounded-md text-white bg-[#009C9C] hover:bg-[#008888]"
             >
-              Submit
+              {isSubmitting ? (
+                <Oval
+                  height={20}
+                  width={20}
+                  color="#fff"
+                  secondaryColor="#009C9C"
+                />
+              ) : (
+                "Submit"
+              )}
             </button>
           </form>
           {submitted && (

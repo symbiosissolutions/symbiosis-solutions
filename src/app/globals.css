@@ -38,3 +38,83 @@ html {
     @apply mt-1 block w-full px-4 py-2 border rounded-md shadow-sm  placeholder:text-[#9CA3AF] focus:outline-none focus:ring-2 focus:ring-[#009C9C] focus:border-transparent;
   }
 }
+
+.prose-custom {
+  @apply text-base leading-relaxed;
+}
+
+.prose-custom h1, .prose-custom h2, .prose-custom h3, .prose-custom h4, .prose-custom h5, .prose-custom h6 {
+  @apply my-4; 
+}
+
+.prose-custom h1 {
+  @apply text-5xl; 
+}
+
+.prose-custom h2 {
+  @apply text-4xl; 
+}
+
+.prose-custom h3 {
+  @apply text-3xl; 
+}
+
+.prose-custom h4 {
+  @apply text-2xl; 
+}
+
+.prose-custom h5 {
+  @apply text-xl; 
+}
+
+.prose-custom h6 {
+  @apply text-lg; 
+}
+
+.prose-custom p {
+  @apply mb-6;
+}
+
+.prose-custom a {
+  @apply text-[#009C9C];
+}
+
+.prose-custom a:hover {
+  @apply text-[#008888];
+}
+
+.prose-custom ul {
+  @apply list-disc my-4;
+}
+
+.prose-custom ol {
+  @apply list-decimal my-4;
+}
+
+.prose-custom blockquote {
+  @apply border-l-4 border-blue-100 pl-4 my-4 text-gray-700;
+}
+
+.prose-custom code {
+  @apply bg-gray-100 text-amber-600 py-1 px-2 rounded;
+}
+
+.prose-custom img {
+  @apply max-w-xs md:max-w-md lg:max-w-lg rounded-lg shadow-md my-4 mx-auto;
+}
+
+.prose-custom figcaption {
+  @apply text-center mb-4;
+}
+
+.prose-custom table {
+  @apply border-collapse w-full;
+}
+
+.prose-custom th, .prose-custom td {
+  @apply border border-gray-200 p-2;
+}
+
+.prose-custom th {
+  @apply bg-gray-50 text-gray-700;
+}

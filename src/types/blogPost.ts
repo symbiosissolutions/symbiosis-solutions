@@ -1,8 +1,24 @@
-export interface BlogPost {
+interface ThumbnailData {
+  data: {
+    attributes: {
+      url: string;
+    };
+  };
+}
+
+interface BlogPostAttributes {
   title: string;
-  description: string;
-  date: string;
+  summary: string;
   content: string;
-  thumbnail: string;
-  link: string;
+  thumbnail: ThumbnailData;
+  isFeatured: boolean;
+  slug: string;
+  createdAt: string;
+  publishedAt: string;
+  updatedAt: string;
+}
+
+export interface BlogPost {
+  id: number;
+  attributes: BlogPostAttributes;
 }
