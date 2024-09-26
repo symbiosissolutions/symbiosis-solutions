@@ -4,14 +4,23 @@ import { BlogPost } from "@/types/blogPost";
 import axios from "axios";
 
 export const Blogs = async () => {
-  const feBaseUrl = process.env.NEXT_PUBLIC_FRONTEND_API_URL;
-  const beBaseUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+
+  if (!baseUrl) {
+    return null;
+  }
+
+  const endpoint = `${baseUrl}/api/blogs?populate=*&filters[isFeatured][$eq]=true`;
+  const token = process.env.CMS_API_TOKEN;
 
   let blogs: BlogPost[] = [];
 
   try {
-    const response = await axios.get(`${feBaseUrl}/api/blogs`);
-
+    const response = await axios.get(endpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     blogs = response.data.data || [];
   } catch (error) {
     console.error("Error fetching blogs:", error);

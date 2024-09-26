@@ -30,13 +30,23 @@ export async function generateMetadata({ params }: BlogDetailsProps) {
 }
 
 async function getBlogPost(slug: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_FRONTEND_API_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL;
+  const token = process.env.CMS_API_TOKEN;
 
+  if (!baseUrl) {
+    return null;
+  }
+
+  const endpoint = `${baseUrl}/api/blogs?filters[slug][$eq]=${slug}&populate=*`;
   try {
-    const res = await axios.get(`${baseUrl}/api/blog/${slug}`);
+    const res = await axios.get(endpoint, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    if (res.data && res.data.attributes) {
-      return res.data;
+    if (res.data && res.data.data.length > 0) {
+      return res.data.data[0];
     }
   } catch (error) {
     console.error("Error fetching blog post:", error);
