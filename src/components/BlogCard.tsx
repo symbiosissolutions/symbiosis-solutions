@@ -21,9 +21,9 @@ const BlogCard: React.FC<BlogCardProps> = ({
   return (
     <a
       href={`/blog/${slug}`}
-      className="group flex w-full rounded-lg overflow-hidden shadow-lg transform transition-all duration-300"
+      className="group flex flex-col md:flex-row w-full rounded-lg overflow-hidden shadow-lg transform transition-all duration-300"
     >
-      <div className="relative w-1/2 h-64 md:h-80 bg-gray-200 overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-48 md:h-autobg-gray-200 overflow-hidden">
         <motion.img
           src={thumbnail}
           alt={title}
@@ -33,7 +33,7 @@ const BlogCard: React.FC<BlogCardProps> = ({
           transition={{ duration: 0.3 }}
         />
       </div>
-      <div className="w-1/2 p-6 md:p-8 bg-white">
+      <div className="w-full md:w-1/2 p-6 md:p-8 bg-white">
         <span className="block text-xs font-semibold uppercase tracking-wide text-[#008888] mb-2">
           {formattedDate}
         </span>
