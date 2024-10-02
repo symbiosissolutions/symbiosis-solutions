@@ -18,12 +18,13 @@ const BlogCard: React.FC<BlogCardProps> = ({
   slug,
 }) => {
   const formattedDate = new Date(date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  
   return (
     <a
       href={`/blog/${slug}`}
       className="group flex flex-col md:flex-row w-full rounded-lg overflow-hidden shadow-lg transform transition-all duration-300"
     >
-      <div className="relative w-full md:w-1/2 h-48 md:h-autobg-gray-200 overflow-hidden">
+      <div className="relative w-full md:w-1/2 h-64 md:h-auto bg-gray-200 overflow-hidden">
         <motion.img
           src={thumbnail}
           alt={title}
