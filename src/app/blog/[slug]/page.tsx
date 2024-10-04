@@ -7,6 +7,7 @@ import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
 
 import Markdown from "markdown-to-jsx";
+import ShareButtons from "@/components/ShareButtons";
 
 interface BlogDetailsProps {
   params: {
@@ -84,20 +85,25 @@ export default async function BlogDetails({ params }: BlogDetailsProps) {
       </Link>
 
       <article className="max-w-4xl mx-auto">
-        <div className="relative w-full h-80 md:h-96 bg-gray-200 overflow-hidden rounded-lg">
+        <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-96 bg-gray-200 overflow-hidden rounded-lg">
           <Image
             src={thumbnailUrl}
             alt={post.attributes.title}
             fill
+            priority
             className="object-cover rounded-lg"
           />
         </div>
 
-        <h1 className="text-5xl font-extrabold mt-8 mb-4 leading-tight text-gray-900">
+        <h1 className="text-3xl md:text-5xl font-extrabold mt-8 mb-4 leading-tight text-gray-900">
           {post.attributes.title}
         </h1>
+
         <div className="text-sm font-semibold mb-4 text-[#009C9C]">
-          <span>{formattedDate}</span>
+          <time dateTime={post.attributes.publishedAt}>{formattedDate}</time>
+        </div>
+        <div className="mb-6">
+          <ShareButtons title={post.attributes.title} />
         </div>
 
         <div className="prose prose-lg prose-custom text-gray-800 lg:prose-xl">
