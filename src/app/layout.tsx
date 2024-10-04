@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import "./globals.css";
 import { twMerge } from "tailwind-merge";
 import { Header } from "@/sections/Header";
@@ -20,6 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <GoogleAnalytics gaId="G-80YQL7DVN6" />
       <body className={twMerge(dmSans.className, "antialiased bg-[#EAEEFE]")}>
         <Header />
         <main>{children}</main>

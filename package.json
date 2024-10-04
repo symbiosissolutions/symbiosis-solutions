@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/third-parties": "^14.2.14",
     "axios": "^1.7.5",
     "framer-motion": "^11.3.28",
     "googleapis": "^144.0.0",
